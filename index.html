@@ -4,38 +4,21 @@
     <meta charset="UTF-8">
     <title>Game</title>
     <link rel="stylesheet" href="style.css">
-    <style type="text/css">
-        h1{
-            background-color: dodgerblue;
-            width: 85px;
-            font-family: sans-serif;
-            padding: 15px;
-            margin-left: 15px;
-            margin-top: 15px;
-            border-radius: 10%;
-            overflow: hidden;
-             display: inline-block;
-        }
-
-        .Çerçeve{
-            margin: 0 auto;
-            width: 140px;
-            border: 5px solid #00F;
-            padding: 5px;
-            font-family: sans-serif;
-        }
-    </style>
-
 </head>
 <body onload="pauseGame()">
     <div class="gem"> 
         <button type="button" class="btn startBtn" onclick="startGame()" >START GAME</button>
         <button type="button" class="btn pauseBtn" onclick="pauseGame()" >PAUSE GAME</button>
+        <div class="token">
+            <div>
+                <span class="tokenIcon"></span>
+                <p>0</p>
+            </div>
+        </div>
      </div>
   
     <div class="retro">
         <h1>Game</h1>
-        <i class="token"></i>
         <div class="buttons">
             <button type="button" class="btn btnOrange" onclick="changeColor('orange')" style="background-color: orange; height: 40px; width: 45px; margin-left: 15px;"></button>
             <button type="button" class="btn btnBlue" onclick="changeColor('blue')" style="background-color: blue;height: 40px; width: 45px;"></button>
@@ -53,32 +36,32 @@
   <tr>
     <td>Level 1</td>
     <td>10 Jumps</td>
-    <td>5 Tokens</td>
+    <td>10 Tokens</td>
   </tr>
   <tr>
     <td>Level 2</td>
     <td>20 Jumps</td>
-    <td>5 Tokens</td>
+    <td>20 Tokens</td>
   </tr>
   <tr>
     <td>Level 3</td>
     <td>30 Jumps</td>
-    <td>5 Tokens</td>
+    <td>30 Tokens</td>
   </tr>
   <tr>
     <td>Level 4</td>
     <td>40 Jumps</td>
-    <td>10 Tokens</td>
+    <td>40 Tokens</td>
   </tr>
   <tr>
     <td>Level 5</td>
     <td>50 Jumps</td>
-    <td>10 Tokens</td>
+    <td>50 Tokens</td>
   </tr>
   <tr>
     <td>Master Level</td>
     <td>70 Jumps</td>
-    <td>100 Tokens</td>
+    <td>70 Tokens</td>
   </tr>
 </table>
     <div class="game">
@@ -87,48 +70,7 @@
         <div id="block"></div>
     </div>
 
-    <script type="text/javascript">
-        function changeColor (color){
-            if (color=="orange") {
-                document.getElementById("character").style.backgroundImage = "url('circle-24.ico')";
-            }
-                    if (color=="blue") {
-                document.getElementById("character").style.backgroundImage = "url('circle.ico')";
-            }
-                        if (color=="red") {
-                document.getElementById("character").style.backgroundImage = "url('circle-24 (2).ico')";
-            }
-        }
 
-        function startGame() {
-            block.style.webkitAnimationPlayState="running";
-            var checkDead=setInterval(function(){
-                let characterTop=parseInt(window.getComputedStyle(character).getPropertyValue("top"));
-                let blockLeft=parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-                if (blockLeft<20 && blockLeft >- 20 && characterTop>=130) {
-                    block.style.animation="none";
-                    alert("Game Over (Score:"+Math.floor(counter/100)+")");
-                    counter=0;
-                    block.style.animation="block 2s infinite linear";
-                }
-                else{
-                    counter++;
-                    document.getElementById("scoreSpan").innerHTML = Math.floor(counter / 100);
-
-                }
-
-            },10);
-
-
-        }
-
-        function pauseGame () {
-            block.style.webkitAnimationPlayState="paused";
-
-        }
-
-        window.onload = pauseGame;
-    </script>
 </body>
 <script src="script.js"></script>
 </html>

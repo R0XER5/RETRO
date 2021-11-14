@@ -3,6 +3,25 @@
     margin: 0;
     overflow-x: hidden;
 }
+h1{
+    background-color: dodgerblue;
+    width: 85px;
+    font-family: sans-serif;
+    padding: 15px;
+    margin-left: 15px;
+    margin-top: 15px;
+    border-radius: 10%;
+    overflow: hidden;
+     display: inline-block;
+}
+
+.Çerçeve{
+    margin: 0 auto;
+    width: 140px;
+    border: 5px solid #00F;
+    padding: 5px;
+    font-family: sans-serif;
+}
 table {
   font-family: arial, sans-serif;
   width: 20%;
@@ -69,20 +88,28 @@ tr:nth-child(even) {
     left: 42%;
     border-radius: 5%;
 }
+.token{
+    font-family: sans-serif;
+    padding: 3px;
+    position: absolute;
+    top: 27%;
+    left: 62.50%;
+    border-radius: 10%;
+    width: 85px;
+    height: 35px;
+    border: 5px solid black;
+}
+.tokenIcon{
+        background: url("token.ico");
+        width: 30px;
+        height: 30px;
+}
 #character{
     width: 24px;
     height: 24px;
     background-image: url("circle-24.ico");
     position:relative;
     top: 150px;
-}
-
-.token{
-    background-image: url("token.ico");
-    position:relative;
-    top: 150px;
-    width: 50px;
-    height: 50px;
 }
 .animate{
 animation: jump 0.3s linear;
