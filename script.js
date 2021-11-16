@@ -1,29 +1,38 @@
+
 var character = document.getElementById("character");
 var block = document.getElementById("block");
 var counter = 0;
-var mySound;
+var isPaused = 1;
 function jump(){
-    if(character.classList == "animate"){return}
-    character.classList.add("animate");
-    setTimeout(function(){
-        character.classList.remove("animate");
-    },500);
-    music();
+    if (isPaused == 0){
+        if(character.classList == "animate"){return}
+        character.classList.add("animate");
+        setTimeout(function(){
+            character.classList.remove("animate");
+        },500);
+                  //document.body.onkeyup=function(k){
+                //if (k.keyCode==32){
+                    counter++;
+                //}
+            //}
+
+    }
 }
 
 function changeColor (color){
     if (color=="orange") {
         document.getElementById("character").style.backgroundImage = "url('circle-24.ico')";
     }
-            if (color=="blue") {
+    if (color=="blue") {
         document.getElementById("character").style.backgroundImage = "url('circle.ico')";
     }
-                if (color=="red") {
+    if (color=="red") {
         document.getElementById("character").style.backgroundImage = "url('circle-24 (2).ico')";
     }
 }
 
 function startGame() {
+    isPaused = 0;
     block.style.webkitAnimationPlayState="running";
     var checkDead=setInterval(function(){
         let characterTop=parseInt(window.getComputedStyle(character).getPropertyValue("top"));
@@ -35,8 +44,8 @@ function startGame() {
             block.style.animation="block 2s infinite linear";
         }
         else{
-            counter++;
-            document.getElementById("scoreSpan").innerHTML = Math.floor(counter / 100);
+ 
+            document.getElementById("scoreSpan").innerHTML = counter;
 
         }
 
@@ -47,7 +56,7 @@ function startGame() {
 
 function pauseGame () {
     block.style.webkitAnimationPlayState="paused";
-
+    isPaused = 1;
 }
 
 window.onload = pauseGame;
